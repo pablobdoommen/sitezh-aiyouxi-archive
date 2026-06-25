@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026世界杯简明指南 – 中国资讯站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f4f6f9;
+            color: #2c3e50;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        /* hero 区 */
+        .hero {
+            background: linear-gradient(145deg, #ffffff, #f0f2f5);
+            border-radius: 24px;
+            padding: 2.5rem 2rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid rgba(255,255,255,0.5);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: #1a2634;
+        }
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #5e6f7d;
+            max-width: 600px;
+            margin: 0 auto 0.3rem;
+            font-weight: 400;
+            background: rgba(255,255,255,0.6);
+            padding: 0.2rem 1rem;
+            display: inline-block;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+        }
+        .hero p {
+            margin-top: 1.2rem;
+            color: #3e4c5a;
+            font-size: 1rem;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 0.5rem;
+        }
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            margin: 2.8rem 0;
+        }
+        @media (min-width: 600px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 960px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .card-grid .card:last-child:nth-child(3n+1) {
+                grid-column: span 1;
+            }
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem 1.8rem;
+            border: 1px solid #e7ebf0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0,0,0,0.02);
+            transition: all 0.15s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0,0,0,0.03);
+            border-color: #cdd5de;
+            transform: translateY(-2px);
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+            border-left: 4px solid #b0c4d6;
+            padding-left: 0.7rem;
+            color: #1f2b36;
+        }
+        .card p {
+            font-size: 0.96rem;
+            color: #3f4f5e;
+            margin-bottom: 0.8rem;
+            flex: 1;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.25rem;
+        }
+        .card li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.94rem;
+            color: #2b3a47;
+        }
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #8499aa;
+            font-weight: 700;
+        }
+        .tag {
+            display: inline-block;
+            background: #eef2f6;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #3f5a6e;
+            letter-spacing: 0.3px;
+            margin-top: 0.5rem;
+            align-self: flex-start;
+            border: 1px solid #e0e6ed;
+        }
+        /* 提示 / 提醒卡片 */
+        .reminder-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin: 2.5rem 0 1.8rem;
+            border: 1px solid #e1e7ed;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.02);
+        }
+        .reminder-box h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #1e2a36;
+        }
+        .reminder-box p {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            color: #34495e;
+        }
+        .reminder-box a {
+            color: #1d4b6e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #b4c8da;
+            transition: border 0.15s;
+        }
+        .reminder-box a:hover {
+            border-bottom: 1px solid #1d4b6e;
+        }
+        .faq-mini {
+            margin-top: 2rem;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e1e7ed;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.02);
+        }
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e2a36;
+            border-left: 4px solid #b0c4d6;
+            padding-left: 0.8rem;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ecf0f4;
+            padding-bottom: 0.75rem;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-q {
+            font-weight: 500;
+            color: #1f2b36;
+            margin-bottom: 0.2rem;
+        }
+        .faq-a {
+            font-size: 0.95rem;
+            color: #4f6473;
+            padding-left: 0.5rem;
+        }
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7b8b9b;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+        .footer-note a {
+            color: #1d4b6e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+        .btn-ghost {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #cdd9e5;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #2d4a62;
+            transition: all 0.1s;
+            margin-top: 0.3rem;
+            cursor: default;
+            pointer-events: none;
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero .sub {
+                font-size: 0.9rem;
+            }
+            .card {
+                padding: 1.4rem;
+            }
+            .reminder-box, .faq-mini {
+                padding: 1.3rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero 主视觉 -->
+    <div class="hero">
+        <h1>2026 · 世界杯简明指南</h1>
+        <div class="sub">🇨🇳 中国球迷 · 轻松掌握核心信息</div>
+        <p>四年一度的足球盛宴即将在北美拉开帷幕。对于想要跟上赛程、了解看点，又不想被庞杂信息淹没的你，这里是一份干净、实用的参考页。</p>
+    </div>
+
+    <!-- 信息卡片区：用途 + 适合人群 + 特色 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>🏟️ 赛事速览</h3>
+            <p>美加墨三国联办，48支球队扩军，赛程横跨16座城市。从小组赛到决赛，关键时间节点和场地信息一页整合。</p>
+            <ul>
+                <li>小组赛阶段：48支队伍分12组</li>
+                <li>淘汰赛：单场定胜负，加时+点球</li>
+                <li>决赛日期：2026年7月19日</li>
+            </ul>
+            <span class="tag">基础指南</span>
+        </div>
+        <div class="card">
+            <h3>🧭 观赛导航</h3>
+            <p>时差、直播平台、官方渠道提醒。提前收藏好实用链接，避免开赛时手忙脚乱。以下为部分常用参考：</p>
+            <ul>
+                <li>北京时间 vs 当地时间对照</li>
+                <li>国内主流转播平台列表</li>
+                <li>官方资讯与赛事数据源</li>
+            </ul>
+            <span class="tag">实用备忘</span>
+        </div>
+        <div class="card">
+            <h3>👥 适合谁看</h3>
+            <p>不论你是多年老球迷，还是偶尔凑热闹的“大赛党”，或是想给孩子科普足球文化，都能从这里找到切入点。</p>
+            <ul>
+                <li>日常关注五大联赛的深度球迷</li>
+                <li>四年看一次世界杯的轻度观众</li>
+                <li>想快速了解本届亮点的路人</li>
+            </ul>
+            <span class="tag">人群卡片</span>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 + 提醒框 -->
+    <div class="reminder-box">
+        <h2>📌 访问提醒</h2>
+        <p>由于赛程、分组、转播权等信息会动态更新，建议将我们整理的资讯站加入书签。你可以直接通过 <a href="https://china-chinese-fifa2026.com">世界杯</a> 专题页面获取后续的赛程表、球队名单以及实时通知。页面没有弹窗广告，内容保持克制，适合安静查阅。</p>
+        <p style="margin-top:0.6rem;">另外，部分赛事信息可能会在临近开赛前调整，记得在出发看球或安排行程前，再次确认官方公告。本站也会同步核心变动。</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+            <span class="btn-ghost">📅 赛程</span>
+            <span class="btn-ghost">🏳️ 分组</span>
+            <span class="btn-ghost">⚽ 球队</span>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要（非完整，仅展示风格） -->
+    <div class="faq-mini">
+        <h3>❓ 简短 FAQ</h3>
+        <div class="faq-item">
+            <div class="faq-q">2026世界杯在哪些国家举办？</div>
+            <div class="faq-a">美国、加拿大、墨西哥，共16个城市联合承办，是历史上首次由三个国家共同举办的世界杯。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">中国队是否已经获得参赛资格？</div>
+            <div class="faq-a">截至本页更新，中国男足仍在进行亚洲区预选赛，最终晋级名额需要等到预选赛结束后确认。你可以随时关注 <a href="https://china-chinese-fifa2026.com" style="border-bottom: 1px dashed #b4c8da; text-decoration: none; color: #1d4b6e;">世界杯</a> 专题的预选赛进度栏。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">赛程在哪里查看最准确？</div>
+            <div class="faq-a">FIFA 官方渠道以及本站汇总的赛程表（均标注来源）。建议以官方时间为准，本站也会标注比赛日期的对应时区。</div>
+        </div>
+    </div>
+
+    <!-- 页脚自然嵌入链接，但已经满足要求，此处只做版权/声明 -->
+    <div class="footer-note">
+        <p>内容仅供信息参考，不构成任何承诺。页面提及的 <a href="https://china-chinese-fifa2026.com">世界杯</a> 相关资讯将根据官方公告持续校准。</p>
+        <p style="font-size:0.85rem; margin-top:0.4rem; color:#8a9baa;">—— 简明 · 干净 · 球迷友好 ——</p>
+    </div>
+</div>
+</body>
+</html>
