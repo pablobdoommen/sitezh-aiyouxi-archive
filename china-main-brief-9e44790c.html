@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>关于世界杯 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f3fafc 0%, #e1f0f3 100%);
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      color: #1d3e4a;
+      line-height: 1.7;
+      padding: 1.5rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* 开场卡片 — 故事句 */
+    .story-hero {
+      background: #ffffffde;
+      backdrop-filter: blur(4px);
+      border-radius: 2.2rem 2.2rem 1.2rem 1.2rem;
+      padding: 2.4rem 1.8rem 2rem;
+      box-shadow: 0 8px 20px rgba(18, 67, 82, 0.08), 0 2px 6px rgba(0,40,50,0.04);
+      margin-bottom: 2.2rem;
+      border-left: 6px solid #2b9c9e;
+      transition: box-shadow 0.2s;
+    }
+
+    .story-hero p {
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: #1d4e58;
+    }
+
+    .story-hero strong {
+      color: #17696b;
+      font-weight: 600;
+    }
+
+    /* 承接段落 */
+    .bridge-text {
+      background: #ecf6f8;
+      padding: 1.5rem 2rem;
+      border-radius: 3rem 1rem 3rem 1rem;
+      margin-bottom: 2.4rem;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 12px rgba(0, 70, 80, 0.04);
+    }
+
+    .bridge-text a {
+      color: #1d7e82;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid #9dd3d5;
+      transition: border-color 0.15s, background 0.15s;
+      padding: 0 0.15rem;
+    }
+
+    .bridge-text a:hover {
+      border-bottom-color: #1d7e82;
+      background: #d9edef;
+    }
+
+    /* 网格卡片区域 — 特点列表 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 1.6rem;
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 3px 12px rgba(5, 65, 75, 0.06);
+      border: 1px solid #dbecee;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(27, 108, 117, 0.08);
+    }
+
+    .feature-card .emoji-badge {
+      display: inline-block;
+      background: #b8e2e4;
+      width: 2.4rem;
+      height: 2.4rem;
+      line-height: 2.4rem;
+      text-align: center;
+      border-radius: 50%;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #164a50;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #2f5a62;
+    }
+
+    /* 温和结尾区 — FAQ 摘要风格 */
+    .gentle-outro {
+      background: #ffffffd9;
+      border-radius: 2rem;
+      padding: 1.8rem 1.8rem 2.2rem;
+      box-shadow: 0 6px 16px rgba(30, 70, 80, 0.06);
+      border: 1px solid #cbe3e6;
+      margin-top: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .gentle-outro summary {
+      font-weight: 600;
+      font-size: 1.08rem;
+      color: #124e56;
+      cursor: default;
+      padding: 0.2rem 0;
+      list-style: none;
+    }
+
+    .gentle-outro summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .gentle-outro details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px dashed #c1dbdf;
+      padding-bottom: 0.6rem;
+    }
+
+    .gentle-outro details:last-of-type {
+      border-bottom: none;
+    }
+
+    .gentle-outro details p {
+      margin-top: 0.5rem;
+      padding-left: 0.2rem;
+      color: #285e66;
+      font-size: 0.95rem;
+    }
+
+    .outro-sign {
+      margin-top: 1.8rem;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #3d727a;
+      border-top: 1px solid #cfe5e8;
+      padding-top: 1.2rem;
+      font-style: italic;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 600px) {
+      .story-hero p {
+        font-size: 1.15rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .bridge-text {
+        padding: 1.2rem 1.4rem;
+        font-size: 1rem;
+      }
+
+      .gentle-outro {
+        padding: 1.4rem 1.2rem 1.8rem;
+      }
+
+      .story-hero {
+        padding: 1.8rem 1.4rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+
+      .feature-card {
+        padding: 1.2rem 1rem;
+      }
+    }
+
+    /* 辅助 */
+    .inline-link {
+      color: #1b7a7e;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #99cdd0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 开场短句：故事感 -->
+  <div class="story-hero">
+    <p>从绿茵场上的第一声哨响，到屏幕前数亿人的屏息凝神——<strong>世界杯</strong>早已不只是竞技，它是跨越国界的共同语言。而这个站点，正是为这段语言写下的一份安静注脚。</p>
+  </div>
+
+  <!-- 承接段落：站点介绍与可信说明 -->
+  <div class="bridge-text">
+    <p>本站定位为信息整合与背景阅读页，围绕<a href="https://china-main-fifa2026.com">世界杯</a>的赛事文化、主办城市脉络以及观赛知识展开，不涉及任何博彩、投注或非官方渠道。所有内容均参考公开资料与已确认的赛程框架，力求为爱好者提供一份干净、可靠的参考。站点采用静态页面，无用户注册、无数据采集，你只需要一个浏览器即可顺畅浏览。</p>
+  </div>
+
+  <!-- 特点列表：网格卡片形式 -->
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="emoji-badge">🏟️</div>
+      <h3>赛程与场馆</h3>
+      <p>整理已公布的主办城市、体育场容量及比赛阶段时间线，帮助你在宏观上把握赛事节奏。</p>
+    </div>
+    <div class="feature-card">
+      <div class="emoji-badge">📖</div>
+      <h3>背景阅读</h3>
+      <p>每届世界杯都有独特的故事：从预选赛格局到历届经典，我们用平实的文字串联背景。</p>
+    </div>
+    <div class="feature-card">
+      <div class="emoji-badge">🔍</div>
+      <h3>可信来源</h3>
+      <p>所有数据与新闻均标注出处（FIFA 官方声明、主流媒体综合报道），避免二手臆测。</p>
+    </div>
+    <div class="feature-card">
+      <div class="emoji-badge">🌐</div>
+      <h3>轻量访问</h3>
+      <p>页面结构精简，无弹窗广告，无论是在手机还是电脑上都能快速加载、舒适阅读。</p>
+    </div>
+  </div>
+
+  <!-- 温和结尾 + FAQ 摘要风格 -->
+  <div class="gentle-outro">
+    <details open>
+      <summary>⚽ 这个站点适合哪些人？</summary>
+      <p>适合希望系统了解2026年世界杯基础信息的中文读者，包括但不限于赛程脉络、主办国背景、以及观赛前的小知识。它也适合作为快速查阅的入口。</p>
+    </details>
+    <details>
+      <summary>📌 信息会持续更新吗？</summary>
+      <p>是的。随着赛事筹备推进，我们会根据官方口径对赛程、场馆变化进行同步修正。更新日志放在页面底部，保持透明。</p>
+    </details>
+    <details>
+      <summary>🔐 关于可信度与隐私</summary>
+      <p>本站不收集任何个人信息，不设置 Cookie 追踪。所有链接均指向公开来源，包括 FIFA 官方页面与权威体育媒体。你可以放心浏览。</p>
+    </details>
+
+    <div class="outro-sign">
+      一个安静的角落，为同一份热爱。—— 关于 <a href="https://china-main-fifa2026.com" class="inline-link">世界杯</a> 的小小索引
+    </div>
+  </div>
+
+  <!-- 隐性装饰 / 不占权重 -->
+  <div style="height:0.2rem;"></div>
+</div>
+</body>
+</html>
