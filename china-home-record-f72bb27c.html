@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯导览 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f9fc;
+            color: #1a2d34;
+            line-height: 1.7;
+            padding: 2rem 1.25rem;
+            min-height: 100vh;
+        }
+        .page-container {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* 网格卡片背景 —— 温柔线条 */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 150, 136, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 150, 136, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* 文章卡 */
+        .article-card {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 2.2rem 1.8rem;
+            box-shadow: 0 8px 24px rgba(0, 90, 80, 0.06), 0 2px 6px rgba(0, 40, 36, 0.03);
+            border: 1px solid rgba(0, 150, 136, 0.12);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #e0f2f1;
+            color: #00695c;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #004d40;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #2f5f5a;
+            border-left: 4px solid #009688;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #e0f2f1, transparent);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .body-text {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #1d3b3a;
+        }
+        .body-text strong {
+            color: #00695c;
+            font-weight: 600;
+        }
+
+        .pull-quote {
+            background: #e4f3f0;
+            border-radius: 18px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.8rem 0;
+            position: relative;
+            font-style: italic;
+            color: #1f4e48;
+            border-left: 6px solid #00897b;
+            box-shadow: 0 2px 8px rgba(0, 130, 120, 0.06);
+        }
+        .pull-quote::before {
+            content: "“";
+            font-size: 3rem;
+            line-height: 0.8;
+            color: #009688;
+            opacity: 0.3;
+            position: absolute;
+            left: 0.6rem;
+            top: 0.2rem;
+            font-family: serif;
+        }
+        .pull-quote p {
+            margin: 0;
+            padding-left: 1.4rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.8rem 0;
+        }
+        .grid-item {
+            background: #f0f9f7;
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #d0e8e4;
+            transition: all 0.2s ease;
+        }
+        .grid-item:hover {
+            background: #e0f2ef;
+            border-color: #009688;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 130, 110, 0.05);
+        }
+        .grid-item .emoji-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .grid-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #00695c;
+            margin-bottom: 0.3rem;
+        }
+        .grid-item p {
+            font-size: 0.92rem;
+            color: #2f5f5a;
+            margin: 0;
+        }
+
+        .faq-summary {
+            margin: 2rem 0 1rem;
+            padding: 1.4rem 0 0.2rem;
+            border-top: 2px dashed #b2dfdb;
+        }
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #004d40;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .faq-a {
+            color: #2b5a54;
+            font-size: 0.96rem;
+            padding-left: 0.8rem;
+            border-left: 2px solid #b2dfdb;
+        }
+
+        .access-note {
+            background: #ffffffd9;
+            border-radius: 100px;
+            padding: 0.7rem 1.6rem;
+            display: inline-block;
+            font-size: 0.95rem;
+            color: #004d40;
+            border: 1px solid #b2dfdb;
+            margin: 1.8rem 0 0.8rem;
+            backdrop-filter: blur(2px);
+        }
+
+        .sentence-link {
+            background: #e0f2f1;
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #004d40;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: 0.15s;
+        }
+        .sentence-link:hover {
+            background: #b2dfdb;
+            border-bottom-color: #00695c;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #c8e6e0;
+            margin: 1.6rem 0;
+        }
+
+        .footer-note {
+            color: #4f7a74;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 2.2rem;
+            opacity: 0.75;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .article-card {
+                padding: 1.5rem 1rem;
+                border-radius: 20px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            .pull-quote {
+                padding: 1rem 1.2rem;
+            }
+            .access-note {
+                border-radius: 40px;
+                padding: 0.5rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 400px) {
+            .article-card {
+                padding: 1.2rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<div class="page-container">
+    <div class="article-card">
+
+        <span class="hero-tag">📄 页面说明 · 稳定入口</span>
+
+        <h1>世界杯：从信息入口到持续陪伴</h1>
+
+        <div class="subhead">
+            一个真正可靠的页面，不只提供链接，更建立信任的起点。
+        </div>
+
+        <p class="body-text">
+            当四年一度的盛会进入倒计时，每一位关注者都希望找到一处不会迷路的信息起点。<strong>世界杯</strong>不只是赛事的名称，它代表着一整套内容生态：赛程、历史、球队、数据以及球迷之间的共同语言。而一个干净的、稳定的首页，正是这一切的锚点。
+        </p>
+
+        <p class="body-text">
+            本文介绍的页面——<a href="https://china-home-fifa2026.com" class="sentence-link">世界杯</a>——正是扮演着这样的角色。它不堆砌弹窗，不制造焦虑，而是以最简洁的方式告诉访客：你来到了对的地方。无论你是想回顾经典比赛的记录，还是期待下一届的抽签信息，这个入口都能把你带到相应区域。
+        </p>
+
+        <!-- 引用提示 -->
+        <div class="pull-quote">
+            <p>一个好的页面说明，就像一本指南的序言——它不替代内容，却让内容更容易被发现。</p>
+        </div>
+
+        <p class="body-text">
+            从实际使用场景来看，许多用户习惯通过搜索引擎或社交分享直接进入某个深度页面，却缺少一个“总览”的印象。而首页的存在价值，恰恰在于提供结构化的目录感：赛事进展、历史数据、官方动态……每一块都对应着明确的路径。<strong>世界杯</strong>相关的内容体系越丰富，首页的定位就越像一座安静的枢纽。
+        </p>
+
+        <!-- 网格卡片：特点 + 场景 -->
+        <div class="feature-grid">
+            <div class="grid-item">
+                <span class="emoji-icon">🧭</span>
+                <h3>导航清晰</h3>
+                <p>按赛事阶段、球队分组、历史记录分层展示，减少查找负担。</p>
+            </div>
+            <div class="grid-item">
+                <span class="emoji-icon">📌</span>
+                <h3>入口稳定</h3>
+                <p>域名与结构长期维护，避免链接失效或跳转混乱。</p>
+            </div>
+            <div class="grid-item">
+                <span class="emoji-icon">📋</span>
+                <h3>页面说明</h3>
+                <p>每个板块附有简短说明，新访客也能快速理解内容范围。</p>
+            </div>
+            <div class="grid-item">
+                <span class="emoji-icon">🌐</span>
+                <h3>移动优先</h3>
+                <p>响应式布局，适配手机与平板，随时随地查看世界杯资讯。</p>
+            </div>
+        </div>
+
+        <p class="body-text">
+            <strong>为什么强调“稳定入口”？</strong> 在信息过载的时代，一个页面如果频繁改版或隐藏核心导航，用户会逐渐失去耐心。而像 <a href="https://china-home-fifa2026.com" class="sentence-link">世界杯</a> 这样的站点，将首页作为长期维护的“说明书”，让每一次访问都有章可循。赛事结束后，历史资料与回顾内容依然可以通过同样的路径找到，这正是知识型页面的持久价值。
+        </p>
+
+        <!-- FAQ 摘要（克制风格） -->
+        <div class="faq-summary">
+            <div class="faq-item">
+                <span class="faq-q">❓ 这个页面包含哪些核心内容？</span>
+                <div class="faq-a">首页集中展示赛事时间线、参赛球队概览、历史冠军记录以及官方通知摘要。每个区域都配有简短说明，方便快速跳转。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">❓ 如何确保信息的时效性？</span>
+                <div class="faq-a">页面内容会跟随赛事筹备阶段更新，关键公告会以标注形式显示在首页顶部。同时保留历史版本归档供参考。</div>
+            </div>
+        </div>
+
+        <!-- 访问句 —— 自然嵌入，无诱导 -->
+        <hr>
+        <div class="access-note">
+            🏟️ 如果你在寻找一个关于 <a href="https://china-home-fifa2026.com" class="sentence-link">世界杯</a> 的可靠信息起点，这里已经为你准备好。
+        </div>
+
+        <p class="body-text" style="margin-top: 0.8rem; font-size: 0.95rem; color: #3d6c65;">
+            本页不追踪用户、不收集隐私，只提供内容导航与说明。保持简单，就是最好的服务。
+        </p>
+
+        <div class="footer-note">
+            © 页面说明 · 世界杯信息入口
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
